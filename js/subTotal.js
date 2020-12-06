@@ -30,6 +30,5 @@ subs.forEach(sub => {
 
 
 
-    console.log(realShipping);
 });
 // console.log(sub);

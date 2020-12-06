@@ -61,7 +61,7 @@
         </tbody>
         </table>
         
-        <form id="update-form" action="include/update-cart.inc.php" method="POST">
+        <form id="update-form">
             <div id="form-input">
             </div>
             <button id="update-button" type="submit">Update Cart</button>
@@ -71,7 +71,10 @@
             <div id="sub"><label>Subtotal</label><span id="sub-value"></span></div>
             <div id="ship"><label>Shipping</label><span id="shipping">3000</span></div>
             <div id="total"><label>Total</label><span id="total-value"></span></div>
-            <button type="submit">CHECKOUT</button>
+            <form action="include/initialize.inc.php" method="POST">
+                <input id="checkout-total" type="hidden" name="price">
+                <button name="checkout-btn" type="submit">CHECKOUT</button>
+            </form>
         </div>
     </section>
 
@@ -96,6 +99,8 @@
     <script src="js/cartCalc.js"></script>
     <script src="js/fixAmt.js"></script>
     <script src="js/subTotal.js"></script>
+    <script src="js/calcTotal.js"></script>
+    <script src="js/updateSubmit.js"></script>
 </body>
 
 </html>

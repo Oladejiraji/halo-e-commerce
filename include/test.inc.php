@@ -1,8 +1,12 @@
 <?php
-session_start();
 
-$id = $_SESSION['userId'];
-$cart = 'cart_'.$id;
-$sql = "SELECT * FROM $cart WHERE cartname='deji';";
+require __DIR__ . '\vendor\autoload.php';
+use Dotenv\Dotenv;
 
-echo $cart;
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+
+
+$pwd = $_ENV['ADMIN_PASSWORD'];
+echo $pwd;

@@ -27,6 +27,8 @@
                     echo '<p class="error">Invalid Username or Email!</p>';
                 } else if ($check == 'wrongpwd') {
                     echo '<p class="error">Wrong Password!</p>';
+                }  else if ($check == 'pleaselogin') {
+                    echo '<p class="error">Login to make purchase!</p>';
                 }
             }
             if(isset($_GET['newpwd'])){
@@ -38,7 +40,10 @@
             }
         ?>
     </form>
-    <a id="forgot" href="reset-password.php">Forgot My Password</a>
+    <div id="forgot">
+        <a href="reset-password.php">Forgot My Password</a>
+        <a href="signup.php">Don't have an account</a>
+    </div>
 </section>
 
 

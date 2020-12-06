@@ -37,7 +37,7 @@
                 $resultCheck = mysqli_num_rows($result);
                 while ($row= mysqli_fetch_assoc($result)) {?>
                 
-                    <div class='product'>
+                    <div class='product'  onclick="parent.location='product.php?key=<?php echo $row['productname'] ?>'">
                         <div class='product-img'><img src='img/product 1.PNG'></div>
                         <div class='product-name'><?php echo $row['productname'] ?></div>
                         <div class='product-price'><?php echo $row['productlowprice'] ?></div>

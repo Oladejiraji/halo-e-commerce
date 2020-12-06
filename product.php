@@ -9,10 +9,30 @@
     <section id="hair">
         <div class="hair-img">
             <div id="hair-photo">
-                <img class="active" src="img/product 1.PNG" alt="">
+                <?php
+
+                    $name = $_GET['key'];
+                    $folder = $name.' Pics';
+                    $pics = scandir($folder);
+                    $no = count($pics) - 2;
+                    $count = 0;
+                    while ($count < $no) {
+                        $fileExt = explode('.', $pics[$count+2]);
+                        $fileActualExt = strtolower(end($fileExt));
+                        if ($count == 0) {?>
+                            <img class='active' src='<?php echo $folder.'/'.$name.' '.$count.'.'.$fileActualExt?>'>
+                       <?php } else {?>
+                            <img src='<?php echo $folder.'/'.$name.' '.$count.'.'.$fileActualExt?>'>
+                        <?php }
+                           
+
+                        $count++;
+                    }
+                ?>
+                <!-- <img class="active" src="img/product 1.PNG" alt="">
                 <img src="img/popular.PNG" alt="">
                 <img src="img/product 2.PNG" alt="">
-                <img src="img/product 3.PNG" alt="">
+                <img src="img/product 3.PNG" alt=""> -->
             </div>
             <div id="hair-btns">
                 <i id="left" class="fas fa-chevron-left"></i>
@@ -42,6 +62,7 @@
             $resultCheck = mysqli_num_rows($result);
             $row = mysqli_fetch_assoc($result);
             $keyid = $row['productid'];
+            $ava = $row['productava'];
         ?>
         <div class="hair-info">
             <div class="hair-name"><?php echo $keyCheck ?></div>
@@ -68,7 +89,14 @@
                 <input min="1" max="1000" class="hair-amt" type="number" value="1" name="amt"> 
                 <div class="hair-price"><?php echo 'NGN' .$row['price'] ?></div>
                 <div style="display:none;" class="hair-price-mark"><?php echo 'NGN' .$row['price'] ?></div>
-                <button name="button" type="submit">Add to Cart</button>
+                <?php
+                    if ($ava == 0) {?>
+                        <div id="sold-out">SOLD OUT</div>
+                <?php } else if ($ava == 1) {?>
+                        <button name="button" type="submit">Add to Cart</button>
+                   <?php }
+                ?>
+               
                 <a id="shop-product-btn" href="shop.php">Go To Shop</a>
                 <?php
                 if (isset($_GET['cart'])) {
@@ -82,7 +110,7 @@
                 }
                 ?>
             </form>
-
+                
         </div>
     </section>
 

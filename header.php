@@ -9,8 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halo e-commerce</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="spec.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/spec.css">
     <link rel="stylesheet" href="fontawesome-free-5.13.0-web/css/all.min.css">
 </head>
 
@@ -20,9 +20,12 @@
 
     <header>
         <nav>
-            <i id="bars" class="fas fa-bars"></i>
+            <!-- <i id="bars" class="fas fa-bars"></i> -->
+            <div class="menu-btn">
+                <div class="menu-burger"></div>
+            </div>
         </nav>
-        <div id="main-title">Halo's Hair Empire</div>
+        <div id="main-title"><a id="halo" href="index.php">Halo's Hair Empire</a></div>
         <div id="main-icon">
             <div id="shopping-icon">
                 <?php  
